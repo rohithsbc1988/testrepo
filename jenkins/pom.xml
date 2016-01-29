@@ -14,6 +14,7 @@
 
 		<mule.version>3.7.0</mule.version>
     	<mule.tools.version>1.1</mule.tools.version>
+		<repodir>C:/Users/r.arvind.kulkarni/.m2/repository</repodir>
 	</properties>
 
 	<build>
@@ -147,8 +148,25 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <localRepository>~/.m2/repository</localRepository>
+	<repositories>
+        <repository>
+            <id>Central</id>
+            <name>Central</name>
+            <url>http://repo1.maven.org/maven2/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </repository>
+	<repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>file://${repodir}</url>
+            <layout>default</layout>
+        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
