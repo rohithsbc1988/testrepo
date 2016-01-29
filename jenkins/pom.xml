@@ -162,7 +162,7 @@
             <layout>default</layout>
         </repository>
 	<repository>
-            <id>mulesoft-releases</id>
+            <id>mulesoft-local</id>
             <name>MuleSoft Releases Repository</name>
             <url>file://${repodir}</url>
             <layout>default</layout>
