@@ -15,6 +15,7 @@
 		<mule.version>3.7.3</mule.version>
     	<mule.tools.version>1.1</mule.tools.version>
 		<repodir>C:/Users/r.arvind.kulkarni/.m2/repository</repodir>
+		<cloudhub.domain>mydomain</cloudhub.domain>
 	</properties>
 
 	<build>
@@ -64,6 +65,24 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+                <groupId>org.mule.tools.appkit</groupId>
+                <artifactId>mule-appkit-maven-plugin</artifactId>
+                <version>@project.version@</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>cloudhub-deploy</goal>
+                        </goals>
+                        <configuration>
+                            <domain>${cloudhub.domain}</domain>
+                            <maxWaitTime>180000</maxWaitTime>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
@@ -150,7 +169,19 @@
 
 	<repositories>
         <repository>
-            <id>local-repo</id>
+            <id>Central</id>
+            <name>Central</name>
+            <url>http://repo1.maven.org/maven2/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </repository>
+		<repository>
+            <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
             <url>file://${repodir}</url>
             <layout>default</layout>
